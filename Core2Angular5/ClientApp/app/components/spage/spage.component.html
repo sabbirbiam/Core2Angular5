@@ -1,0 +1,24 @@
+﻿<a routerLink='/fpage'> Back </a>
+<div align="center"><h2>Show List</h2></div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Dept</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let p of stdlist">
+        <td>{{p.id}}</td>
+        <td>{{p.firstname}}</td>
+        <td>{{p.lastname}}</td>
+        <td>{{p.department}}</td>
+        <td (click)="delete(p.id)"><a>DELETE</a></td>
+        <td [routerLink]="['/updatepage',p.id]"><a>UPDATE</a></td>
+        <td (click)="getbyid(p.id)"><a>GetById</a></td>
+        
+    </tr>
+</table>

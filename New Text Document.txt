@@ -1,0 +1,54 @@
+  dpt: string[] = [
+        'CSE',
+        'BBA',
+        'EEE',
+        'Arch',
+        'CSSE'
+    ];
+
+      myform: FormGroup;
+    firstname: FormControl;
+    lastname: FormControl;
+    department: FormControl;
+
+    id: number;
+
+    constructor(public http: Http, private _avRoute: ActivatedRoute,
+        private _studentService: StudentService, private _router: Router) {
+        if (this._avRoute.snapshot.params["id"]) {
+            this.id = this._avRoute.snapshot.params["id"];
+            
+        }   
+       // console.log(this.appurl);
+    }
+    coment: string = "Item has been successfully inserted";
+    
+   
+    
+
+    ngOnInit() {
+        this.createFormControls();
+        this.createForm();
+    }
+    createFormControls() {
+        this.firstname = new FormControl('', Validators.required);
+        this.lastname = new FormControl('', Validators.required);
+        this.department = new FormControl('', Validators.required);
+    }
+
+    createForm() {
+        this.myform = new FormGroup({
+            firstname: this.firstname,
+            lastname: this.lastname,
+            department: this.department
+        });
+    }
+    is_add: boolean =false;
+    addNew = function (std: any){
+        console.log(std); 
+        if (std) {
+            _studentService.saveStudent(std).subscribe((res: Response) => {
+                is_add = true;
+            });
+        }
+    }

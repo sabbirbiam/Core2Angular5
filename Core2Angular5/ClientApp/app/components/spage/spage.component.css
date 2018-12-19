@@ -1,0 +1,13 @@
+﻿table, th, td {
+    font-size: 20px;
+    padding: 4px;
+}
+
+a {
+    font-size: 20px;
+}
+
+    a:hover {
+        cursor: pointer;
+        color: blue;
+    }

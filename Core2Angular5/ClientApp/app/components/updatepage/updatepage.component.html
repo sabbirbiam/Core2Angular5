@@ -1,0 +1,45 @@
+﻿<a routerLink='/fpage'> Back </a>
+<h2 align="center">update Item</h2>
+<p *ngIf="!exist">
+    item doesn't exist
+</p>
+<form [formGroup]="myform" (ngSubmit)="update(myform.value)">
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text"
+               class="form-control"
+               formControlName="firstname" placeholder="Enter your first name" [(ngModel)]="Data.firstname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text"
+               class="form-control"
+               formControlName="lastname" placeholder="Enter your last name" [(ngModel)]="Data.lastname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Department</label>
+        <select class="form-control"
+                formControlName="department" [(ngModel)]="Data.department">
+            <option value="">Please select a language</option>
+            <option *ngFor="let lang of dpt"
+                    [value]="lang">
+                {{lang}}
+            </option>
+        </select>
+    </div>
+    <br />
+    <input type="submit" value="UPDATE">
+
+</form>
+<p *ngIf="!Data.firstname">
+    firstname doen't fill
+</p>
+<p *ngIf="!Data.lastname">
+    lastname doen't fill
+</p>
+<p *ngIf="!Data.department">
+    Dept doen't fill
+</p>

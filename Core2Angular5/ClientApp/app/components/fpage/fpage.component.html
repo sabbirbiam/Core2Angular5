@@ -1,0 +1,48 @@
+﻿<a routerLink='/spage'> View-List </a>
+<div align="center">
+    Registration
+</div>
+
+<form [formGroup]="myform" (ngSubmit)="addNew(myform.value)">
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text"
+               class="form-control"
+               formControlName="firstname" placeholder="Enter your first name" [(ngModel)]="fname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text"
+               class="form-control"
+               formControlName="lastname" placeholder="Enter your last name" [(ngModel)]="lname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Language</label>
+        <select class="form-control"
+                formControlName="department" [(ngModel)]="dept">
+            <option value="">Please select a language</option>
+            <option *ngFor="let lang of dpt"
+                    [value]="lang">
+                {{lang}}
+            </option>
+        </select>
+    </div>
+    <br />
+    <input type="submit" value="Submit">
+</form>
+
+<br />
+<p *ngIf="!fname">
+    firstname doen't fill
+</p>
+<p *ngIf="!lname">
+    lastname doen't fill
+</p>
+<p *ngIf="!dept">
+    Dept doen't fill
+</p>
+
+<h3 *ngIf="is_add">{{coment}}</h3>

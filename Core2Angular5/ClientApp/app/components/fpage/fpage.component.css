@@ -1,0 +1,16 @@
+﻿form, label, input {
+    font-size: 20px;
+    padding: 4px;
+}
+
+input {
+    margin-top: 7px;
+}
+a {
+    font-size: 20px;
+}
+
+    a:hover {
+        cursor: pointer;
+        color: blue;
+    }

@@ -1,0 +1,8 @@
+﻿form, label, input {
+    font-size: 20px;
+    padding: 4px;
+}
+
+input {
+    margin-top: 7px;
+}
